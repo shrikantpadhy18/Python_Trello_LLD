@@ -1,0 +1,68 @@
+from abc import ABC,abstractmethod
+from PYTHON_TRELLO_LLD.model import Board
+from PYTHON_TRELLO_LLD.repository import Board
+from PYTHON_TRELLO_LLD.Utilities.helpers import generate_random_number
+
+
+class BoardService:
+    @abstractmethod
+    def create(self,name,privacy,members,lists):
+        pass
+
+    def move_card(self,board_id,list_id_from,list_id_to)
+        pass
+
+class BoardServiceImpl(BoardService):
+    def create(self,name,privacy,members,lists):
+        generated_id = generate_random_number()
+        generated_url = URLConstants.BOARD_URL + str(generated_id)
+        board = Board(name,privacy,members,lists,igenerated_id,generated_url)
+
+        board_object = Board()
+        board.put_board(generated_id,board)
+
+        return board
+
+    def move_card(self,board_id,list_id_from,list_id_to,card_id,list_service):
+        first_list = None
+        second_list = None
+
+        board_object = Board()
+        board = board_object.get_board(board_id)
+        list_data = board.get_list_from_board()
+
+        for data in list_data:
+            if data.get_id() == list_id_from:
+                first_list = data
+            if data.get_id == list_id_to:
+                second_list = data
+
+        if second_list is None or first_list is None:
+            print(f"The Movement is not possible for {board_id} from {list_id_from} to {list_id_to}")
+
+        else:
+            first_card_dict = first_list.get_cards()
+            second_card_dict = second_list.get_cards()
+
+            if first_card_dict.get(card_id,None):
+                print(f"The card id {card_id} not found in list_id {list_id_from} so movement is not possible")
+                return
+            card = first_card_dict.get(card_id)
+            del first_card_dict[card_id]
+
+            second_card_dict[card_id] = card
+
+            first_list.set_card(card)
+            second_list.set_card(card)
+
+            list_service.update_list(first_list)
+            list_service.update_list(second_list)
+
+          
+            board_object.put_board(board_id,board)
+
+
+            
+
+
+
