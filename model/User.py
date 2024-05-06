@@ -8,6 +8,12 @@ class User:
         self._email = email
         self._name = name
         
+    def display_user(self):
+        print("following is the user information...")
+        print("user-email : ",self._email)
+        print("user name : ",self._name)
+        print("user id : ", self._user_id)
+        
     
 class UserBuilder:
     

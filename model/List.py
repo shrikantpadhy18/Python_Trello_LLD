@@ -26,6 +26,10 @@ class List:
         print("list information follows\n")
         print(f"The id of list is {self._id}")
         print(f"The name of list is {self._name}")
+        print(f"card information in the list are as follows : ")
+        for card in self._cards:
+            card.display_card()
+        
 
     
 

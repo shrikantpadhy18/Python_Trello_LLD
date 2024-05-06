@@ -21,8 +21,15 @@ class Board:
     def display_board(self):
         print(f"The board name is {self._name}")
         print(f"The privacy is {self._privacy}")
+        print("following are the list present in the board")
         for list_data in self._lists:
-            print("list: data",list_data)
+            print("list: data\n",list_data.display_list())
+
+        print("following are associated members of the list\n")
+        for user in self._members:
+            print("user : data\n", user.display_user())
+
+
 
     
 

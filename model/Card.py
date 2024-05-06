@@ -22,5 +22,13 @@ class Card:
     def unassign_user(self):
         self._user = None
 
+    def display_card(self):
+        print("following are the card information...")
+        print("id : ", self._id)
+        print("name : ",self._name)
+        print("description : ",self._description)
+        print("assigned_user_info :\n ", self._user.display_user() if self._user is not None else "No User Assigned")
+
+
 
 
