@@ -1,6 +1,6 @@
 from abc import ABC,abstractmethod
-from PYTHON_TRELLO_LLD.model import Board
-from PYTHON_TRELLO_LLD.repository import Board
+from PYTHON_TRELLO_LLD.model.Board import Board
+from PYTHON_TRELLO_LLD.repository.board_storage import Board
 from PYTHON_TRELLO_LLD.Utilities.helpers import generate_random_number
 
 
@@ -60,6 +60,12 @@ class BoardServiceImpl(BoardService):
 
           
             board_object.put_board(board_id,board)
+
+    def delete_board(self,board_id):
+        board_respository = Board()
+        board_respository.delete_board(board_id)
+        print(f"successfully deleted the board with id :{board_id}")
+        
 
 
             

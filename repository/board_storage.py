@@ -26,4 +26,9 @@ class Board:
         if hasattr(self,'board_storage'):
             return self.board_storage.data_store[ids]
         return None
-            
+
+    def delete_board(self, ids):
+        if hasattr(self, 'board_storage'):
+            del self.board_storage.data_store[ids]
+    
+
