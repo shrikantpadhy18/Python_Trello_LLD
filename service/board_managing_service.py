@@ -63,6 +63,14 @@ class BoardServiceImpl(BoardService):
 
     def delete_board(self,board_id):
         board_respository = Board()
+        board_object = board_respository.get(board_id)
+        lists = board_object.get_list_from_board()
+        list_service = Listserviceimpl()
+        
+        for list_data in lists:
+            list_service.remove_from_list(list_data.get_id())
+            print(f"successfully deleted the list_data_id {list_data.get_id()} from the list_service")
+
         board_respository.delete_board(board_id)
         print(f"successfully deleted the board with id :{board_id}")
         

@@ -9,7 +9,7 @@ class Listservice(ABC):
 
     def update_list(list_id,list_data):
         pass
-        
+
 
 class Listserviceimpl(Listservice):
 
@@ -23,3 +23,7 @@ class Listserviceimpl(Listservice):
     def update_list(self,list_id,list_data):
         list_persistence = List()
         list_persistence.put_list(list_id,list_data)
+
+    def remove_from_list(self,list_id):
+        list_persistence = List()
+        list_persistence.remove_from_list(list_id)
