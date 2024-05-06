@@ -8,8 +8,18 @@ class BoardService:
     @abstractmethod
     def create(self,name,privacy,members,lists):
         pass
-
+    @abstractmethod
     def move_card(self,board_id,list_id_from,list_id_to)
+        pass
+    @abstractmethod
+    def show_single_board(self,board_id):
+        pass
+    @abstractmethod
+    def delete_board(self,board_id):
+        pass
+    
+    @abstractmethod
+    def add_member(self, user):
         pass
 
 class BoardServiceImpl(BoardService):
@@ -79,6 +89,15 @@ class BoardServiceImpl(BoardService):
         board_repository = Board()
         board_object = board_repository.display_single_board(board_id)
         board_object.display_board()
+
+    def add_member(self,board_id,user):
+        board_repository = Board()
+        board_object = board_repository.get_board(board_id)
+        board_members = board_object.get_memebers_from_board()
+        board_members.add(user)
+
+        board_repository.put_board(board_id,board_object)
+        print(f"added the board member successfullly..")
         
 
 
