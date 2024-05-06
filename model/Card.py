@@ -1,7 +1,7 @@
 class Card:
 
-    def __init__(self,id,name,description,assigned_user):
-        self._id = id
+    def __init__(self,ids,name,description,assigned_user):
+        self._id = ids
         self._name = name
         self._description = description
         self._user = assigned_user
