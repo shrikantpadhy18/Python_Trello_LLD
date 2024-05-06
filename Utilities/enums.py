@@ -5,3 +5,8 @@ class ModelEnum(Enum):
     CARD = "card"
     LIST = "list"
     USER = "user"
+
+class PrivacyEnum(Enum):
+    PRIVATE = "private"
+    PUBLIC  = "public"
+
