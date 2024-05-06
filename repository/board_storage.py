@@ -30,5 +30,10 @@ class Board:
     def delete_board(self, ids):
         if hasattr(self, 'board_storage'):
             del self.board_storage.data_store[ids]
-    
+
+
+    def display_single_board(self, ids):
+        if hasattr(self, 'board_storage'):
+            board = self.board_storage.data_store[ids]
+            return board
 

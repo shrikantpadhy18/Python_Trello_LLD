@@ -18,6 +18,12 @@ class Board:
     def get_url_from_board(self):
         return self._url
 
+    def display_board(self):
+        print(f"The board name is {self._name}")
+        print(f"The privacy is {self._privacy}")
+        for list_data in self._lists:
+            print("list: data",list_data)
+
     
 
     

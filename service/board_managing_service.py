@@ -73,6 +73,12 @@ class BoardServiceImpl(BoardService):
 
         board_respository.delete_board(board_id)
         print(f"successfully deleted the board with id :{board_id}")
+
+
+    def show_single_board(self,board_id):
+        board_repository = Board()
+        board_object = board_repository.display_single_board(board_id)
+        board_object.display_board()
         
 
 

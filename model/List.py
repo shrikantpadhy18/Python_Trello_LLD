@@ -21,6 +21,12 @@ class List:
     def get_cards(self):
         return self._cards
 
+
+    def display_list(self):
+        print("list information follows\n")
+        print(f"The id of list is {self._id}")
+        print(f"The name of list is {self._name}")
+
     
 
     
